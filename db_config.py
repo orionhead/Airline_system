@@ -1,0 +1,5 @@
+PHOTO_DIRECTORY = "C:\\Users\\user\\Downloads\\photos\\"
+DB_SERVER = "localhost"
+DB_USER = "root"
+DB_PASS = ""
+DB = "airorion"
