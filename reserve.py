@@ -2,16 +2,24 @@ import tkinter as tk
 from tkinter import *
 import pymysql
 import db_config
+import os
 
-
+Image_path = os.environ['TEMP'] + r"\33.gif"
 root = Tk()
 root.title("DOCUMENTATION PORTAL")
 
-root.configure(background='light cyan2')
+image11 = tk.PhotoImage(file=Image_path)
+w = image11.width()
+h = image11.height()
+root.geometry("%dx%d+0+0" % (w, h))
 
-d = tk.PhotoImage(file="C:/Users/user/Downloads/flightt.gif")
-Label(root, image=d).grid(row=0, column=0, columnspan=4)
-Label(root, text="Welcome to Immigration Air-travels System", font=("Bauhaus 93", 17), fg="lime green", width=46,
+panel1 = tk.Label(root, image=image11)
+panel1.grid(row=0, column=0, columnspan=4, rowspan=6)
+
+panel1.image = image11
+
+Label(root).grid(row=0, column=0, columnspan=8)
+Label(root, text="Welcome to Immigration Air-travels Portal", font=("Bauhaus 93", 27), fg="royalblue1", width=46,
       bg="White").grid(row=0,
                        column=0,
                        columnspan=4)
@@ -22,7 +30,7 @@ def passenger():
     master.geometry("520x400")
     master.title("Air Reservation System")
 
-    master.configure(background='light cyan2')
+    master.configure(background='deep sky blue')
 
     textName = StringVar()
     textDob = StringVar()
@@ -87,7 +95,7 @@ def passenger():
         deletePassInput = StringVar()
 
         Label(deletePass, text="Passenger Number: ").grid(row=0)
-        Label(deletePass, text="You have to know your Passenger Number to delete your passenger data").grid(row=1)
+        Label(deletePass, text="Enter Passenger Number to delete your passenger data").grid(row=1)
         Label(deletePass, text="(Example of Passenger Number: 1122212232) ").grid(row=2)
 
         passDelete = Entry(deletePass, text=deletePassInput)
@@ -132,6 +140,7 @@ def ticket():
     master = Tk()
     master.geometry("500x250")
     master.title("Air Reservation System")
+    master.configure(background='deep sky blue')
 
     textTicketNum = StringVar()
     textSeatNum = StringVar()
@@ -225,6 +234,7 @@ def flight():
     master = Tk()
     master.geometry("500x350")
     master.title("Air Reservation System")
+    master.configure(background='deep sky blue')
 
     textFlightId = StringVar()
     textFlightTerm = StringVar()
@@ -334,6 +344,7 @@ def plane():
     master = Tk()
     master.geometry("850x300")
     master.title("Air Reservation System")
+    master.configure(background='deep sky blue')
 
     textArrival = StringVar()
     textDeparture = StringVar()
@@ -405,7 +416,7 @@ def plane():
 
 myButtonb = Button(root, text="Plane", relief="flat", command=plane)
 myButtonb.grid(row=1, column=0, columnspan=4)
-img = PhotoImage(file="C:/Users/user/Downloads/button(8).png")
+img = PhotoImage(file="C:/Users/user/Downloads/button(13).png")
 myButtonb.configure(image=img)
 
 myButtonc = Button(root, text="Tickets", relief="flat", command=ticket)
@@ -422,8 +433,9 @@ myButtone = Button(root, text="Passenger", relief='flat', command=passenger)
 myButtone.grid(row=4, column=0, columnspan=4)
 img3 = PhotoImage(file="C:/Users/user/Downloads/button(12).png")
 myButtone.configure(image=img3)
-Label(root, text="© Air Orion 2020", font=("comic sans 23", 13), fg="green", width=63, bg="White").grid(row=5,
-                                                                                                        column=0,
-                                                                                                        columnspan=4)
+Label(root, text="Copyright © Air Orion 2020", font=("comic sans 23", 11, "bold"), fg="royalblue1", width=97,
+      bg="white").grid(row=5,
+                       column=0,
+                       columnspan=4)
 
 root.mainloop()
